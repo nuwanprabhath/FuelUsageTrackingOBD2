@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+    <style src="/stylesheets/style.css"></style>
+    <script defer src="/javascripts/home.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-static-top">
+
+    <div class="container">
+
+        <a href="#" style="color: white;" class="navbar-brand">Real-Time Vehicle Fuel Consumption Monitor</a>
+        <button class="navbar-toggle"
+                data-toggle="collapse" data-target=".navHeaderCollapse"></button>
+
+        <div class="collapse navbar-collapse navHeaderCollapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings</a>
+                    <ul class="dropdown-menu">
+                        <li><a onclick="updateUser()" style="cursor: pointer;">Update Vehicle</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div>
+            <label for="vehicleNo" style="color: rgb(146, 139, 139);" class="col-md-3">Vehicle Number: </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="vehicleNo"
+                       placeholder="Enter vehicle number" style="width: 20%;">
+            </div>
+        </div>
+        <div>
+            <label for="daterange" style="color: rgb(146, 139, 139);" class="col-md-3 control-label">Select date range
+                to view data: </label>
+            <!--<input type="text" name="daterange"/>-->
+            <div id="daterange" class="pull-right" class="col-md-9"
+                 style="background: #fff;   padding: 5px 10px; border: 1px solid #ccc;margin-right: 675px;width: 165px">
+                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                <span></span> <b class="caret"></b>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+<div id="map" style="height: 100%"></div>
+</body>
+<script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVp3Ky_Y95Xz98CGxpvi4NYl1YDoSG2ss&callback=initMap">
+</script>
+</html>

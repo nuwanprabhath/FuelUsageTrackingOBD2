@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Info</title>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+    <style src="/stylesheets/style.css"></style>
+    <script src="/javascripts/updateInfo.js"></script>
+</head>
+<body>
+<div id="signupbox" style="margin-top:50px"
+     class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Update Info</div>
+            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#"
+                                                                                       onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign
+                In</a></div>
+        </div>
+        <div class="panel-body">
+            <form id="signupform" action="/users/update" class="form-horizontal" role="form" method="POST">
+
+                <div id="signupalert" style="display:none" class="alert alert-danger">
+                    <p>Error:</p>
+                    <span></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" style="visibility: hidden" class="form-control" name="_id">
+
+                    <label for="username" class="col-md-3 control-label">User Name</label>
+                    <div class="col-md-9">
+                        <input type="text"  class="form-control" name="username" placeholder="User Name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstname" class="col-md-3 control-label">First Name</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-md-3 control-label">Password</label>
+                    <div class="col-md-9">
+                        <input type="password" required="true" class="form-control" name="password" placeholder="Enter old or new password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicleNo" class="col-md-3 control-label">Vehicle Number</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="vehicleNo" placeholder="Vehicle Number">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicleType" class="col-md-3 control-label">Vehicle Type</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="vehicleType" placeholder="Vehicle Type">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fuelCapacity" class="col-md-3 control-label">Fuel Capacity in liters</label>
+                    <div class="col-md-9">
+                        <input type="number" step="0.01" class="form-control" name="fuelCapacity" placeholder="Fuel Capacity">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="deviceId" class="col-md-3 control-label">Device Id</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="deviceId" placeholder="Device Id">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <!-- Button -->
+                    <div class="col-md-offset-3 col-md-9">
+                        <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>
+                            &nbsp Update
+                        </button>
+                    </div>
+                </div>
+
+                <label id="status" class="col-md-3 control-label"></label>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
