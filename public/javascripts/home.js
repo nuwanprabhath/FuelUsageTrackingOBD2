@@ -77,9 +77,9 @@ function getData(start, end) {
             console.log('get Data in home: ', data);
             removePoints();
             createPoints(map, data);
+            drawGraph(data)
         },
         error: function (err) {
-            // alert('Error occurred while getting data');
             console.log('Error getting data', err);
         }
 
@@ -98,7 +98,49 @@ function initMap() {
     createPoints(map, citymap);
 
 }
-console.log('Init map done')
+
+function drawGraph(data){
+
+    var xData = [];
+    var yData  = [];
+    for(var i in data){
+        var point = data[i];
+        var value = point.fuelValue;
+        var date = point.date;
+        xData.push(date);
+        yData.push(value);
+        Highcharts.chart('container', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Fuel Level '
+            },
+            xAxis: {
+                categories: xData
+            },
+            yAxis: {
+                title: {
+                    text: 'Fuel value (Liters)'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Fuel Level',
+                data: yData
+            }]
+        });
+
+    }
+}
+console.log('Init map done');
 
 $(function () {
     $('#daterange').daterangepicker({
@@ -111,6 +153,4 @@ $(function () {
             console.log("A new date range was chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
             getData(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'));
         });
-
-
 });
