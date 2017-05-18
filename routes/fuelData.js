@@ -70,4 +70,45 @@ app.post('/addData', function (req, res) {
     });
 });
 
+app.get('/addData', function (req, res) {
+    console.log('addData in GET data received: ', req.query);
+    var lat = req.query.lat;
+    var lng = req.query.lng;
+    var percentage = parseFloat(req.query.percentage) / 100;
+    console.log('addData in GET data received lat: ', req.query.lat);
+    console.log('addData in GET data received lng: ', req.query.lng);
+    console.log('addData in GET data received dev: ', req.query.deviceId);
+    var deviceId = req.query.deviceId;
+
+    var center = {lat: lat, lng: lng};
+    mongoDocumentHelper.findOneDocument('users', {'deviceId': deviceId}, function (callback) {
+        if (callback) {
+            console.log('User: ', callback);
+            var fuelCapacity = callback.fuelCapacity;
+            var username = callback.username;
+            var vehicleNo = callback.vehicleNo;
+            var entry = {
+                username: username,
+                vehicleNo: vehicleNo,
+                deviceId: deviceId,
+                fuelCapacity: fuelCapacity,
+                center: center,
+                date: new Date(),
+                percentage: percentage,
+                fuelValue: percentage * fuelCapacity
+            };
+            mongoDocumentHelper.saveDocuemt(collectionName, entry, function (savedResponse) {
+                if (savedResponse) {
+                    res.sendStatus(200);
+                } else {
+                    res.sendStatus(500);
+                }
+            });
+
+        } else {
+            res.send("Sorry no users found");
+        }
+    });
+});
+
 module.exports = app;
