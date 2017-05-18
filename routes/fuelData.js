@@ -33,7 +33,7 @@ app.get('/getData', function (req, res) {
 });
 
 app.post('/addData', function (req, res) {
-
+    console.log('addData data received: ', req.body);
     var lat = req.body.lat;
     var lng = req.body.lng;
     var percentage = parseFloat(req.body.percentage) / 100;

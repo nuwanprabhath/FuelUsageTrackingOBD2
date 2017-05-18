@@ -141,7 +141,6 @@ function drawGraph(data){
     }
 }
 console.log('Init map done');
-
 $(function () {
     $('#daterange').daterangepicker({
             locale: {
