@@ -38,6 +38,12 @@ function updateUser() {
     window.open('/users/update?username=' + username, '_blank')
 }
 
+function createCenter(location){
+    return {
+        lat: parseFloat(location.lat), lng: parseFloat(location.lng)
+    }
+}
+
 function createPoints(map, data) {
     for (var city in data) {
         // Add the circle for this city to the map.
@@ -48,7 +54,7 @@ function createPoints(map, data) {
             fillColor: '#FF0000',
             fillOpacity: 1,
             map: map,
-            center: data[city].center,
+            center: createCenter(data[city].center),
             radius: 100,
             clickable: true,
             title: 'hi'
