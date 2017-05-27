@@ -55,7 +55,7 @@ function createPoints(map, data) {
             fillOpacity: 1,
             map: map,
             center: createCenter(data[city].center),
-            radius: 20,
+            radius: 10,
             clickable: true,
             title: 'hi'
         });
