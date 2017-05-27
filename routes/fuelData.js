@@ -74,11 +74,13 @@ app.get('/addData', function (req, res) {
     console.log('addData in GET data received: ', req.query);
     var lat = req.query.lat;
     var lng = req.query.lng;
-    var percentage = parseFloat(req.query.percentage) / 100;
-    console.log('addData in GET data received lat: ', req.query.lat);
-    console.log('addData in GET data received lng: ', req.query.lng);
-    console.log('addData in GET data received dev: ', req.query.deviceId);
+    var percentage = parseFloat(req.query.percentage).toFixed(2);
     var deviceId = req.query.deviceId;
+
+    console.log('addData in GET data received lat: ', lat);
+    console.log('addData in GET data received lng: ', lng);
+    console.log('addData in GET data received percentage: ', percentage);
+    console.log('addData in GET data received dev: ', deviceId);
 
     var center = {lat: lat, lng: lng};
     mongoDocumentHelper.findOneDocument('users', {'deviceId': deviceId}, function (callback) {
