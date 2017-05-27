@@ -109,44 +109,44 @@ function drawGraph(data){
     console.log('Drawing line chart:',data);
     var xData = [];
     var yData  = [];
-    console.log('Line chart xData: ', xData);
-    console.log('Line chart yData: ', yData);
+
     for(var i in data){
         var point = data[i];
         var value = point.fuelValue;
         var date = point.date;
         xData.push(date);
         yData.push(value);
-        Highcharts.chart('container', {
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'Fuel Level '
-            },
-            xAxis: {
-                categories: xData
-            },
-            yAxis: {
-                title: {
-                    text: 'Fuel value (Liters)'
-                }
-            },
-            plotOptions: {
-                line: {
-                    dataLabels: {
-                        enabled: true
-                    },
-                    enableMouseTracking: false
-                }
-            },
-            series: [{
-                name: 'Fuel Level',
-                data: yData
-            }]
-        });
-
     }
+    console.log('Line chart xData: ', xData);
+    console.log('Line chart yData: ', yData);
+    Highcharts.chart('container', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Fuel Level '
+        },
+        xAxis: {
+            categories: xData
+        },
+        yAxis: {
+            title: {
+                text: 'Fuel value (Liters)'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
+        },
+        series: [{
+            name: 'Fuel Level',
+            data: yData
+        }]
+    });
 }
 console.log('Init map done');
 $(function () {
