@@ -106,9 +106,11 @@ function initMap() {
 }
 
 function drawGraph(data){
-
+    console.log('Drawing line chart:',data);
     var xData = [];
     var yData  = [];
+    console.log('Line chart xData: ', xData);
+    console.log('Line chart yData: ', yData);
     for(var i in data){
         var point = data[i];
         var value = point.fuelValue;
